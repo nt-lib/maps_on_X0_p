@@ -74,12 +74,11 @@ d1 := 15;
 prec := 500;
 expanded_forms := [qExpansion(f, prec) : f in forms];
 monomials := MonomialsOfDegree(R,d1);
-time evals := [Evaluate(mon, expanded_forms) : mon in monomials];
+evals := [Evaluate(mon, expanded_forms) : mon in monomials];
 evals_x := [f*x : f in evals];
 evals_y := [f*y : f in evals];
 prec1 := Minimum([Degree(f) : f in evals cat evals_x cat evals_y]);
 val := Minimum([Valuation(f) : f in evals cat evals_x cat evals_y]);
-print prec1;
 
 Mx := Matrix(Rationals(),[[Coefficient(f,i) : i in [val..prec1]] : f in evals cat evals_x]);
 My := Matrix(Rationals(),[[Coefficient(f,i) : i in [val..prec1]] : f in evals cat evals_y]);
