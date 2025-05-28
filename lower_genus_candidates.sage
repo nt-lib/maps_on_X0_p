@@ -40,7 +40,7 @@ def lower_genus_candidates(J):
         # assert ker==ker2
 
         if 2*gJ-2 >= d*(2*g-2):
-            candidates.append([A,g,d,floor((2*gJ-2)/(2*g-2))])
+            candidates.append([S,g,d,floor((2*gJ-2)/(2*g-2))])
     return candidates
 
 @parallel(6)
