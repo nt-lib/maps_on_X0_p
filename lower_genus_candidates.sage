@@ -17,7 +17,7 @@ def lower_genus_candidates(J):
         if 2*gJ-2 < 3*(2*g-2):
             # the map needs to come from an involution so we skip it.
             continue
-	A = sum(S)
+        A = sum(S)
         d = lcm(A.modular_kernel().invariants())
         if 2*gJ-2 >= d*(2*g-2):
             candidates.append([A,g,d,floor((2*gJ-2)/(2*g-2))])
