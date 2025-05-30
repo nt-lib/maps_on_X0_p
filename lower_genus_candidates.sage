@@ -11,7 +11,7 @@ def modular_kernel_invariants(S, decomposition):
     mod_ker = (J.lattice()/(A.lattice()+B.lattice()))
     return list(mod_ker.invariants())
 
-def lower_genus_candidates(J : verbose = False):
+def lower_genus_candidates(J, verbose = False):
     """Let J be the modular abelian variety J_0(p) then with p a prime, then we return the isogeny factors
     of J that could potentially correspond to a map X_0(p) -> C where C is a curve of genus at least 2.
     Note, we only return candidates that do not come from involutions.
