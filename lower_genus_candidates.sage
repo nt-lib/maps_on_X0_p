@@ -1,3 +1,5 @@
+import  time
+
 def modular_kernel_invariants(S, decomposition):
     """compute the invarants of the modular kernel corresponding to a subset S of the decomposition
     This function should return the same as sum(S).modular_kernel().invariants(). It assumes that
@@ -22,7 +24,7 @@ def lower_genus_candidates(J, verbose = False):
     # the map needs to come from an involution if the dimension is to large so we skip it
     small_factors = [A for A in dec if 2*gJ-2 >= 3*(2*A.dimension()-2)]
     for i,S in enumerate(Subsets(small_factors)):
-        if verbose: t = cputime()
+        if verbose: t = time.monotonic()
         if not S:
             continue
         g = sum([A.dimension() for A in S])
@@ -43,7 +45,7 @@ def lower_genus_candidates(J, verbose = False):
         if 2*gJ-2 >= d*(2*g-2):
             candidates.append([S,g,d,floor((2*gJ-2)/(2*g-2))])
         if verbose:
-            print(f"done {i} out of {2**len(dec)} in {cputime()} seconds")
+            print(f"done {i} out of {2**len(dec)} in {time.monotonic()-t} seconds")
     return candidates
 
 @parallel(6)
