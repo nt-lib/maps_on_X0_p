@@ -45,7 +45,7 @@ def lower_genus_candidates(J, verbose = False):
         if 2*gJ-2 >= d*(2*g-2):
             candidates.append([S,g,d,floor((2*gJ-2)/(2*g-2))])
         if verbose:
-            print(f"done {i} out of {2**len(dec)} in {time.monotonic()-t} seconds. Dims {[A.dimension() for A in S]}")
+            print(f"done {i} out of {2**len(small_factors)} in {time.monotonic()-t} seconds. Dims {[A.dimension() for A in S]}")
     return candidates
 
 @parallel(6)
